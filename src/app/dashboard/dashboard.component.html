@@ -1,0 +1,20 @@
+<div class="col-sm-12">
+  <div class="row">
+
+    <div class="card" style="width: 18rem;" *ngFor="let movie of movies">
+      <img src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="img-responsive">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.title}}</h5>
+        <p class="card-text">{{movie.overview}}</p>
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="col-sm-12">
+  <div class="row">
+    <button class="col-sm-12 btn btn-primary" (click)="loadPopularMovies()">Load more</button>
+  </div>
+</div>
