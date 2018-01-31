@@ -9,18 +9,22 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PopularService } from './popular.service';
 import { HttpClient } from 'selenium-webdriver/http';
 import { HttpModule } from '@angular/http';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    MoviedetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     // HttpClientModule,
-    HttpModule
+    HttpModule,
+    InfiniteScrollModule
   ],
   providers: [
     PopularService
@@ -28,3 +32,5 @@ import { HttpModule } from '@angular/http';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);

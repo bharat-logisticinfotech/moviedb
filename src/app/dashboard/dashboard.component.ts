@@ -24,6 +24,12 @@ export class DashboardComponent implements OnInit {
                     this.movies.push(movie);
                 }
             }, (error) => {
+                //
             });
+    }
+
+    onScroll() {
+        this.loadPopularMovies();
+        // console.log('scrolled!!');
     }
 }

@@ -29,6 +29,16 @@ export class PopularService {
         // .do(data => console.log('server data:', data))  // debug
     }
 
+    getMovie(id) {
+        return this.http.get('https://api.themoviedb.org/3/movie/' + id + '?api_key=6e953a396ec83db976711d118b0f5868&language=en-US', this.options)
+            .map((res: Response) => {
+                console.log('response recieved', res);
+                return res.json();
+
+            }).catch(this.handleError);
+        // .do(data => console.log('server data:', data))  // debug
+    }
+
     handleError(error: any) {
         console.log('res', error);
         return Observable.throw(error.json().error || 'Server error');
