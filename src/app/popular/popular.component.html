@@ -1,0 +1,23 @@
+<h1>Movie DB List </h1>
+<a href="javascript:void();" routerLink="/dashboard">Go to infinite scroll view</a>
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+  [scrollWindow]="false">
+
+  <div class="col-sm-12">
+    <div class="row">
+
+      <div class="card col-md-4" *ngFor="let movie of movies">
+        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="img-responsive">
+        <div class="card-body">
+          <a href="javascript:void();" class="card-title" routerLink="/moviedetail/{{movie.id}}">{{movie.title}}</a>
+          <p class="card-text">{{movie.overview}}</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- <app-pagination [inputString]="inputStringText" (onVoted)="onVoted123($event)"></app-pagination> -->
+    <app-pagination [currentPage]="page" [totalRecords]="totalMovieRecords" [pageRecord]="perPageMovieRecord" (pageChange)="pageChanged($event)"></app-pagination>
+</div>

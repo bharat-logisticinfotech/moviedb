@@ -1,0 +1,48 @@
+<div class="col-md-12">
+  Inrer polation :
+  <br /> ================
+  <br /> {{ 1 + 1 + getValue()}}
+  <br/>
+  <input type="number" [(ngModel)]="fieldOne"> +
+  <input type="number" [(ngModel)]="fieldTwo"> =
+  <input type="number" readonly [value]="fieldOne + fieldTwo">
+
+  <br>
+  <br> Trigger click event of button from other button:
+  <button (click)="setBoxColor('red')" [disabled]="tempColorName=='red'">Red</button>;
+  <button (click)="setBoxColor('blue')" [disabled]="tempColorName=='blue'">Blue</button>;
+  <button (click)="setBoxColor('green')" [disabled]="tempColorName=='green'">Green</button>
+  <br/>
+  <button (click)="setColor()">Set Color</button>
+  <span style="margin-left:10px; width:10px; height:10px;" [style.border]="boxColor">showme</span>
+  <span [ngClass]="boxColorClass">hereclass</span>
+
+  <!-- <br>
+  <br> Input validate on submit/onblur/custom validate:
+  <form>
+    => :'':'fr'
+  </form> -->
+
+  <br>
+  <br> Set create piping example:
+  <br>
+  <strong>Date/uppercase pipe: </strong>{{ birthday | date:'full' | uppercase }}
+  <br>
+  <strong>Currency pipe: </strong>{{ amount | currency:'CAD':'symbol':'4.3-4' }}
+  <br>
+  <strong>Percet pipe: </strong>{{ pr | percent }}
+  <br>
+  <strong>Custom pipe (x)^10: </strong>{{ expVal | exponent:10:2 }}
+
+  <br>
+  <br> Routing child routing example:
+  <!-- <ul>
+    <li *ngFor="let item of parentData; let i = index"><a href="javascript:void();">{{i}} {{item}}</a></li>
+  </ul> -->
+  <nav>
+    <a [routerLink]="['overview']">Overview</a>
+    <a [routerLink]="['specs']">Technical Specs</a>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>
